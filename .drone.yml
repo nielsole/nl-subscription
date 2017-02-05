@@ -4,8 +4,8 @@ pipeline:
     commands:
       - cd nlsub
       - pip install -r requirements.txt
-      - ./manage.py migrate
       - sleep 5
+      - ./manage.py migrate
       - ./manage.py test
   backend:
     image: plugins/docker
