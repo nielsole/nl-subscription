@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Confirm Action</h1>
+<p>Confirm action for email address {{ email }} on list {{list.name }}?</p>
+<form method="POST" action="{{url}}">
+    {% csrf_token %}
+    <input type="submit" value="Confirm"/>
+</form>
+{% endblock %}

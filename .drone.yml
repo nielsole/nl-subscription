@@ -1,0 +1,20 @@
+pipeline:
+  test:
+    image: django:1.9.7-python3
+    commands:
+      - cd nlsub
+      - pip install -r requirements.txt
+      - ./manage.py migrate
+      - sleep 5
+      - ./manage.py test
+  backend:
+    image: plugins/docker
+    repo: nielsole/nl-subscription
+    username: ${DRONE_USERNAME}
+    password: ${DRONE_PASSWORD}
+    tags:
+      - latest
+
+services:
+  db:
+    image: postgres:9.4.5

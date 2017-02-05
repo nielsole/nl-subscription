@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="javascript:subscribe()" id="myForm">
+    <input id="email" type="text" name="email">
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+function subscribe(){
+var formData = JSON.stringify({email: $("#email")[0].value});
+$.ajax({
+type: "POST",
+url: "/lists/1/subscribe/",
+data: formData,
+success: function(){alert('Success');},
+dataType: "json",
+contentType : "application/json"
+});
+}
+</script>
+</body>
+</html>
