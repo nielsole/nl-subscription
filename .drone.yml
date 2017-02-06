@@ -14,7 +14,3 @@ pipeline:
     password: ${DRONE_PASSWORD}
     tags:
       - latest
-
-services:
-  db:
-    image: postgres:9.4.5
