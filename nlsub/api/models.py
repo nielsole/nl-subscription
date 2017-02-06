@@ -16,12 +16,20 @@ class List(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     secret = models.UUIDField(default=uuid.uuid4, editable=False)
 
+    def __str__(self):
+        return "{} - {}".format(self.name, self.description)
+
+
 class Subscriber(models.Model):
     email = models.EmailField()
     created = models.DateTimeField(auto_now_add=True)
     list = models.ForeignKey(List)
     class Meta:
         unique_together = (("list", "email"),)
+
+    def __str__(self):
+        return "{} ({})".format(self.email, self.list)
+
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
