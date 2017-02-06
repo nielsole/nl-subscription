@@ -4,8 +4,8 @@ pipeline:
     commands:
       - cd nlsub
       - pip install -r requirements.txt
-      - for i in 1 2 3 4 5; do ./manage.py check && break || sleep 5; done
-      - ./manage.py migrate
+      - ./manage.py check
+      - for i in 1 2 3 4 5; do ./manage.py migrate && break || sleep 5; done
       - ./manage.py test
   backend:
     image: plugins/docker
