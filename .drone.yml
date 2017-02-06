@@ -13,7 +13,7 @@ pipeline:
     username: ${DRONE_USERNAME}
     password: ${DRONE_PASSWORD}
     tags:
-      - dev
+      - latest
 
 services:
   db:
