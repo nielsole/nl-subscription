@@ -43,7 +43,7 @@ def generate_unsubscribe_url(email, list_id):
 
 def send_email(subscriber, elist, html, subject):
     url = generate_unsubscribe_url(subscriber.email, elist.id)
-    html += "<br />Fed up with this newsletter? <a href=\"{}\">Unsubscribe</a>".format(url)
+    html += "<br />Recommend to a friend? <a href=\"https://newsletter.niels-ole.com/\">Sign Up</a> || Fed up with this newsletter? <a href=\"{}\">Unsubscribe</a>".format(url)
     host_ = settings.NL['HOST']
     return requests.post(
         "https://api.mailgun.net/v3/" + host_ + "/messages",
